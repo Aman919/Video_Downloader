@@ -25,14 +25,8 @@ def get_detail():
    payload = "{\r\n    \"Gender\":\"All\",\r\n    \"MacAddress\":\"b8:27:eb:45:c7:21\",\r\n    \"Location\":\"\", \r\n    \"Business\":\"\",\r\n    \"Age\":\"\"\r\n}"
    data = requests.post("http://smartgsc.rannlabprojects.com/api/CMS/SearchAdvertisement", data=payload, headers = {'Content-Type': 'application/json'})
    json_data = json.loads(data.text)
-
-
    return json_data
-
-                                                                                                                    
-
-   
-
+                                                                                                                
 def get_video_url():
    search_item = download_entry.get()
    ydl_opts = {
@@ -40,6 +34,7 @@ def get_video_url():
       'noplaylist': True,
       'extract-audio': True,
    }
+   
    os.chdir('C:/Users/Aman/Downloads/Tkinter/download')
    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
     ydl.download([search_item])
